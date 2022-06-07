@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,11 +24,12 @@ public class User extends PanacheEntity {
     
     private String name;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private List<Message> messages;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JsonBackReference
     private List<Channel> channels;
 
     public void addMessage (Message message){
