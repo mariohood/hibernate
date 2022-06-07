@@ -15,9 +15,11 @@ import dev.ifrs.model.User;
 
 @Path("/channel")
 @Transactional
+
 public class ChannelWS {
 
-  @GET
+    
+   @GET
    @Path("/save/{hash}")
    @Produces(MediaType.APPLICATION_JSON)
    public Channel save(@PathParam("hash") String hash) {
@@ -26,7 +28,14 @@ public class ChannelWS {
       channel.persist();
       return channel;
    }
-    
+
+   @GET
+   @Path("/list")
+   @Produces(MediaType.APPLICATION_JSON)
+   public List<Channel> list() {
+      return Channel.listAll();
+   }
+
    @GET
    @Path("/add/{idChannel}/{idUser}")
    @Produces(MediaType.APPLICATION_JSON)
@@ -47,10 +56,6 @@ public class ChannelWS {
 
       return user;
    }
-   @GET
-   @Path("/list")
-   @Produces(MediaType.APPLICATION_JSON)
-   public List<Channel> list() {
-      return Channel.listAll();
-   }
+
+    
 }

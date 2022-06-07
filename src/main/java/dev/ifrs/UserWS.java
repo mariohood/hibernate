@@ -11,11 +11,8 @@ import javax.ws.rs.core.MediaType;
 
 import dev.ifrs.model.User;
 
-
-
 @Path("/user")
 @Transactional
-
 public class UserWS {
 
     @GET
@@ -27,7 +24,8 @@ public class UserWS {
         user.persist();
         return user;
     }
-    
+
+
     @GET
     @Path("/list")
     @Produces(MediaType.APPLICATION_JSON)
@@ -35,7 +33,6 @@ public class UserWS {
     public List<User> list() {
         return User.listAll();
     }
-
     @GET
     @Path("/list/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -43,5 +40,5 @@ public class UserWS {
     public User list(@PathParam("id") Long id) {
         return User.findById(id);
     }
-
+    
 }
