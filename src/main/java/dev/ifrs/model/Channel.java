@@ -12,7 +12,7 @@ import lombok.Setter;
 
 @Entity
 @Getter @Setter @NoArgsConstructor
-public class Chanel extends PanacheEntity{
+public class Channel extends PanacheEntity{
 
     private String hash;
 
