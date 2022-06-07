@@ -7,7 +7,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import dev.ifrs.model.Chanel;
+import dev.ifrs.model.Channel;
 import dev.ifrs.model.Message;
 import dev.ifrs.model.User;
 
@@ -41,9 +41,9 @@ public class Service {
     @GET
     @Path("/chanel/create/{hash}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Chanel createChanel(@PathParam("hash")String hash){
+    public Channel createChanel(@PathParam("hash")String hash){
 
-        Chanel chanel = new Chanel();
+        Channel chanel = new Channel();
         chanel.setHash(hash);
         chanel.persist();
         return chanel;

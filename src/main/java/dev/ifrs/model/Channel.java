@@ -20,5 +20,8 @@ public class Channel extends PanacheEntity{
     private List<User> users;
 
     
+    public void addUser(User user) {
+        this.users.add(user);
+    }
     
 }

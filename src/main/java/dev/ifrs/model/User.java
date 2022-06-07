@@ -27,11 +27,16 @@ public class User extends PanacheEntity {
     private List<Message> messages;
 
     @ManyToMany
-    private List<Chanel> chanels;
+    private List<Channel> channels;
 
     public void addMessage (Message message){
         this.messages.add(message);
     }
 
-         
-}
+     
+    public void addChannel(Channel channel) {
+        this.channels.add(channel);
+    }
+
+}    
+
